@@ -40,3 +40,6 @@ Route::post('admin/upload/file', 'Admin\UploadController@uploadFile');
 Route::delete('admin/upload/file', 'Admin\UploadController@deleteFile');
 Route::post('admin/upload/folder', 'Admin\UploadController@createFolder');
 Route::delete('admin/upload/folder', 'Admin\UploadController@deleteFolder');
+
+Route::get('rss', 'BlogController@rss');
+Route::get('sitemap.xml', 'BlogController@siteMap');

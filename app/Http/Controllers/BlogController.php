@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Services\PostService;
+use App\Services\SiteMap;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -26,5 +27,11 @@ class BlogController extends Controller
             $tag = Tag::where('tag', $tag)->firstOrFail();
         }
         return view($post->layout, compact('post', 'tag'));
+    }
+
+    public function siteMap(SiteMap $siteMap)
+    {
+        $map = $siteMap->getSiteMap();
+        return response($map)->header('Content-type', 'text/xml');
     }
 }
